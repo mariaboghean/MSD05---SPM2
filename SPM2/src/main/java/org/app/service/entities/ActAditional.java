@@ -1,16 +1,26 @@
 package org.app.service.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+import javax.persistence.SecondaryTable;
+import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class ActAditional extends Contract {
+@Table(name="ActAditional")
+@DiscriminatorValue("ActAditional")
+public class ActAditional extends Contract implements Serializable {
+	
 	private String detaliiActAditional;
+	@OneToOne
+	private Contract contract;
 
+	
 	public String getDetaliiActAditional() {
 		return detaliiActAditional;
 	}

@@ -1,5 +1,6 @@
 package org.app.service.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,10 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
 @Entity
-public class Client {
+public class Client implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@NotNull
 	private Integer idClient;
 	private String numeClient;
 	private String prenumeClient;
@@ -115,6 +119,11 @@ public class Client {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
+	/*@Override
+	public int compareTo(Client o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}*/
 	
 	
 }

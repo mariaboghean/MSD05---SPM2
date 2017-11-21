@@ -1,5 +1,6 @@
 package org.app.service.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
-public class Angajat {
+public class Angajat implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String marcaAngajat;
